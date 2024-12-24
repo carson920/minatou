@@ -2,6 +2,8 @@ let loaded = false;
 let currentBoard = null;
 let lastPlacements = [];
 r = ''
+
+// Get random 15-letter words
 fetch('https://6e66f2kddafrk76hpborn2amse0pitds.lambda-url.us-west-2.on.aws/', {
   method: 'GET'
 })
@@ -11,6 +13,7 @@ fetch('https://6e66f2kddafrk76hpborn2amse0pitds.lambda-url.us-west-2.on.aws/', {
     console.log(data);
   })
 
+// Banner tile positions
 const now_loading_banner = [
   ["N", [1, 2]],
   ["O", [1, 3]],
