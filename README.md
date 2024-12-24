@@ -4,3 +4,4 @@ Minatou is a Scrabble OCR solver where users can find the best play by uploading
 
 ![Minatou Demo (3)](https://github.com/user-attachments/assets/5cada1b9-053e-493b-a6a0-764e397343d1)
 ![Minatou Demo (4)](https://github.com/user-attachments/assets/1ffac25a-4f4c-4872-953a-c86a68a9a2e3)
+![Minatou Demo (5)](https://github.com/user-attachments/assets/68eccdd7-0b59-4c27-a586-1c1b35f7c457)
