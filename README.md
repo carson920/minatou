@@ -1,6 +1,6 @@
 Minatou is a AI Scrabble solver where users can find the best play by uploading a picture of a Scrabble board.
 
-https://minatou.s3.us-west-2.amazonaws.com/index.html
+https://minatou.com
 
 ![Minatou Demo (3)](https://github.com/user-attachments/assets/c8c5ff5a-3540-439d-a440-839f2f17e3c2)
 
