@@ -407,15 +407,29 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
+// Send the board and rack to Scrabble bot to find the highest scoring play
 document.getElementById('lambdaForm').addEventListener('submit', function (event) {
-  event.preventDefault();  // Prevent the form from submitting in the traditional way
+  event.preventDefault();
 
-  let inputString = document.getElementById('inputString').value;  // Get the input string value
+  let inputString = document.getElementById('inputString').value;
   inputString = inputString.replace(/\?/g, "_");
   inputString = inputString.replace(/\./g, "_");
   // Generate a 15x15 array of random letters
   let stringArray = [];
+
+  let rows = document.getElementsByClassName("row");
+  for (let x = 0; x < 15; x++) {
+    let row = rows[x].childNodes;
+    for (let y = 0; y < 15; y++) {
+      currentBoard[x][y] = " ";
+      let input = row[y].childNodes[1];
+      if (!input.classList.contains('filledNew')) {
+        if (input.value.match(/[a-zA-Z]/i)) currentBoard[x][y] = input.value;
+      }
+    }
+  }
+
+
   if (currentBoard) {
     stringArray = currentBoard;
   } else {
@@ -442,10 +456,12 @@ document.getElementById('lambdaForm').addEventListener('submit', function (event
       let rows = document.getElementsByClassName("row");
       if (lastPlacements != null || lastPlacements.length != 0) {
         for (p of lastPlacements) {
-          let row = rows[p.row].childNodes;
-          let input = row[p.col].childNodes[1];
-          input.classList.remove('filledNew');
-          input.value = '';
+          if (p.existing == false) {
+            let row = rows[p.row].childNodes;
+            let input = row[p.col].childNodes[1];
+            input.classList.remove('filledNew');
+            input.value = '';
+          }
         }
       }
       for (p of result.placements) {
