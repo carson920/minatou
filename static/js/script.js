@@ -1,7 +1,7 @@
 let loaded = false;
 let currentBoard = null;
 let lastPlacements = [];
-r = ''
+let fifteenLetterWords = '';
 
 // Get random 15-letter words
 fetch('https://6e66f2kddafrk76hpborn2amse0pitds.lambda-url.us-west-2.on.aws/', {
@@ -9,8 +9,7 @@ fetch('https://6e66f2kddafrk76hpborn2amse0pitds.lambda-url.us-west-2.on.aws/', {
 })
   .then(response => response.json())
   .then(data => {
-    r = data;
-    console.log(data);
+    fifteenLetterWords = data;
   })
 
 // Banner tile positions
@@ -102,7 +101,7 @@ class ScrabbleBoard {
   }
 
   /**
-   * Layout scrabble board
+   * Draw scrabble board
    */
   draw() {
     var sb = this;
@@ -281,7 +280,7 @@ document.getElementById("fileInput").onchange = function () {
           filename: file.name
         };
 
-        // Send the base64 encoded resized image to your server (AWS Lambda URL)
+        // Send the base64 encoded resized image to AWS Lambda
         try {
           const response = await fetch('https://yg4kghuoxknke5mw6df7z47c5i0qtnct.lambda-url.us-west-2.on.aws/', {
             method: 'POST',
@@ -358,7 +357,7 @@ async function writeNowLoading() {
 
 async function show15s() {
   let startIndex = Math.floor(Math.random() * 20) * 15;
-  sampledWords = r.slice(startIndex, startIndex + 90);
+  sampledWords = fifteenLetterWords.slice(startIndex, startIndex + 90);
   for (let i = 0; i < 90; i++) {
     if (loaded) {
       break;
