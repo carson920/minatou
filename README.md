@@ -7,11 +7,11 @@ https://minatou.com
 
 How to use:
 1. Take a picture or upload an existing picture of a Scrabble board.
-2. AI guesses the letter tiles on board. Letter for blank tiles are also predicted.
-3. Add, remove or edit letter tiles if necessary.
-4. Input player's tiles to find the best play and score.
+2. AI identifies the board position and makes the best guess of letter tiles.
+3. Add, remove or edit any letter tiles if necessary.
+4. Input player's tiles to find the best possible play.
 
 This is the repo for the frontend only.
 
-There is a separate Python repo for analyzing the board image and return the board position, and a Java repo for finding best play for a particular board position and player's rack.
+There is a separate Python repo for analyzing the board image, and a Java repo for finding best play for a particular board position and player's rack.
 They are both deployed as AWS Lambda and an API endpoint is available to call by the frontend.
