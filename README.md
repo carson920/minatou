@@ -13,5 +13,6 @@ How to use:
 
 This is the repo for the frontend only.
 
-There is a separate Python repo for analyzing the board image, and a Java repo for finding best play for a particular board position and player's rack.
+There is a separate Python repo for analyzing the board image (), and a Java repo for finding best play for a particular board position and player's rack.
+[This is an external link to python repo](https://github.com/carson920/uwu)
 They are both deployed as AWS Lambda and an API endpoint is available to call by the frontend.
